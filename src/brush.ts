@@ -3,22 +3,21 @@ import T$ from "./util"
 
 // Tegaki brush
 export default class Brush extends Tegaki {
-    public brush
-    public brushSize
-    public rgb
-    public kernel
-    public center
-    public step
-    public stepSize
-    public stepAcc
-    public posX
-    public posY
-    public size
-    public alpha
-    public alphaDamp
+    public brush: any
+    public brushSize: any
+    public rgb: any
+    public kernel: any
+    public center: any
+    public step: any
+    public stepSize: any
+    public stepAcc: any
+    public posX: any
+    public posY: any
+    public size: any
+    public alpha: any
+    public alphaDamp: any
 
-    constructor(x, y) {
-        super()
+    public brushFn(x: any, y: any) {
         var i, ctx, dest, data, len, kernel
 
         x = 0 | x
@@ -45,7 +44,7 @@ export default class Brush extends Tegaki {
         super.clearCtx(super.ghostCtx)
     }
 
-    public draw(posX, posY, pt) {
+    public draw(posX: any, posY: any, pt: any) {
         var offset, mx, my, fromX, fromY, dx, dy, err, derr, step, stepAcc
 
         offset = this.center
@@ -56,7 +55,8 @@ export default class Brush extends Tegaki {
             this.stepAcc = 0
             this.posX = posX
             this.posY = posY
-            this.constructor(posX - offset, posY - offset)
+
+            this.brushFn(posX - offset, posY - offset)
             return
         }
 
@@ -86,7 +86,8 @@ export default class Brush extends Tegaki {
             ++stepAcc
 
             if (stepAcc > step) {
-                this.constructor(fromX - offset, fromY - offset)
+                this.brushFn(fromX - offset, fromY - offset)
+
                 stepAcc = 0
             }
 
@@ -168,13 +169,14 @@ export default class Brush extends Tegaki {
         }
 
         ctx.putImageData(dest, 0, 0)
+        
         this.center = r
         this.brushSize = size
         this.brush = brush
         this.kernel = data
     }
 
-    public setSize(size, noBrush) {
+    public setSize(size: any, noBrush: any) {
         this.size = size
 
         if (!noBrush) {
@@ -184,7 +186,7 @@ export default class Brush extends Tegaki {
         this.stepSize = Math.floor(this.size * this.step)
     }
 
-    public setAlpha(alpha, noBrush) {
+    public setAlpha(alpha: any, noBrush: any) {
         this.alpha = alpha
 
         if (!noBrush) {
@@ -192,7 +194,7 @@ export default class Brush extends Tegaki {
         }
     }
 
-    public setColor(color, noBrush) {
+    public setColor(color: any, noBrush: any) {
         this.rgb = super.hexToRgb(color)
 
         if (!noBrush) {
