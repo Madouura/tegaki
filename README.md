@@ -1,1 +1,1 @@
-[ insert useful text here ]
+totally not a ripoff of https://github.com/desuwa/tegaki

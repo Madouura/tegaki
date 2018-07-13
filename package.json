@@ -1,0 +1,13 @@
+{
+	"name": "tegaki",
+	"version": "1.0.0",
+	"license": "AGPL-3.0",
+	"main": "src/main.ts",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Chiiruno/tegaki"
+	},
+	"dependencies": {
+		"typescript": "^2.9.2"
+	}
+}
